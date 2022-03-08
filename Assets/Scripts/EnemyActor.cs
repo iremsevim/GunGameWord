@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
+using Coskunerov.Resources;
+using Coskunerov.Utilities;
 public class EnemyActor : MonoBehaviour
 {
     public static List<EnemyActor> allenemies = new List<EnemyActor>();
@@ -60,7 +61,8 @@ public class EnemyActor : MonoBehaviour
     }
     public void OnTouchedGate(GateActor gate)
     {
-
+        ParticleFXDisplayer smoke = new ParticleFXDisplayer() { destroyTime = 4f, particleID = "smoke", position = transform.position };
+        smoke.Display();
        Destroy(gameObject);
        
     }

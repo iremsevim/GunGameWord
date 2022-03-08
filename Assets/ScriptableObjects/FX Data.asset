@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1011669210, guid: 7c354729ed577424b940e5a4392e0b27, type: 3}
   m_Name: FX Data
   m_EditorClassIdentifier: 
-  particleDatas: []
+  particleDatas:
+  - ID: smoke
+    Prefab: {fileID: 196103974925586353, guid: baef9021d5ce8184d9d7285b6a5868ca, type: 3}
   soundDatas: []

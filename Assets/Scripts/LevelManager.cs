@@ -8,9 +8,9 @@ public class LevelManager : GameSingleActor<LevelManager>
     public List<Transform> enemyPoints;
     public List<GateActor> allGates;
     private int doorIndexer = 0;
-
     public override void ActorStart()
     {
+     
     
         CreateEnemy();
     }
@@ -63,5 +63,6 @@ public class LevelManager : GameSingleActor<LevelManager>
         GameObject bullet = Instantiate(GameData.Instance.bullet, bulletPoint.transform.position, bulletPoint.transform.rotation);
         bullet.GetComponent<Bullet>().ThrowToEnemy(enemy);
     }
+   
 }
 

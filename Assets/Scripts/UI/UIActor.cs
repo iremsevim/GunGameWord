@@ -116,4 +116,9 @@ public class UIActor : GameSingleActor<UIActor>
 
 
     }
+    public void Delete()
+    {
+        if (typedletters.text.Length <= 0) return;
+       typedletters.text = typedletters.text.Substring(0,typedletters.text.Length - 1);
+    }
 }

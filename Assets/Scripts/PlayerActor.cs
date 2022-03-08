@@ -10,6 +10,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     public Transform bulletPoint;
     public ParticleSystem bulletHit;
     public List<EnemyActor> enemieshit;
+    public bool isGameWriteState;
     public override void ActorAwake()
     {
         Letter.onDownLetterButton = (string letter) =>
@@ -21,6 +22,8 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     }
     public void LetterTypeController(string enteredLetter)
     {
+        if (isGameWriteState) return;
+
         EnemyActor findedletter = EnemyActor.allenemies.Find(x => x.letterType.ToString() == enteredLetter && !x.isDead);
         if (findedletter)
         {
@@ -47,7 +50,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     }
     public void FinishGame()
     {
-    
+        isGameWriteState = true;
         MakeWordPanel.Instance.ShowLetterPanel(enemieshit);
     }
 }
