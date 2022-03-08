@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleDatas:
   - ID: smoke
-    Prefab: {fileID: 3314779579209771440, guid: 715fb0dddd0c27f4cbd3b92b2909fe5f, type: 3}
+    Prefab: {fileID: 2262682209987557731, guid: 3a9d17fad885756499f5a9f0e2cc56cb, type: 3}
   soundDatas: []

@@ -113,6 +113,7 @@ MonoBehaviour:
   allGates:
   - {fileID: 1494822930199245786}
   - {fileID: 5576159032323900106}
+  enemycreaterTimer: 1.5
 --- !u!1 &1371516832314583027
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,6 +943,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: GateRight
       objectReference: {fileID: 0}
+    - target: {fileID: 7041855919742228703, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168488782332757087, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: simulationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 18.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.81549454
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.30584726
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
 --- !u!4 &4438986446217362355 stripped
@@ -1014,6 +1043,34 @@ PrefabInstance:
     - target: {fileID: 3755714785549674093, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
       propertyPath: m_Name
       value: GateLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7041855919742228703, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168488782332757087, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: simulationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 18.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.81549454
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168628664942214063, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.30584726
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}

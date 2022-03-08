@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour
         });
         IEnumerator Wait()
         {
+            enemy.smoke.transform.SetParent(CustomLevelActor.Instance.transform);
+            Destroy(enemy.smoke.gameObject, 3F);
             enemy.smoke.Play();
             yield return new WaitForSeconds(0.2f);
             Destroy(enemy.gameObject);
