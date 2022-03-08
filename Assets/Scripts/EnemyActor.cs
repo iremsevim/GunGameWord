@@ -10,11 +10,14 @@ public class EnemyActor : MonoBehaviour
     public NavMeshAgent agent;
     public Animator anim;
     public Image ownedLetter;
+    public LetterType letterType;
+    public bool isDead = false;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         allenemies.Add(this);
+        FindLetter();
 
     }
     private void OnDestroy()
@@ -25,5 +28,20 @@ public class EnemyActor : MonoBehaviour
     {
         agent.SetDestination(pos);
        
+    }
+    public void FindLetter()
+    {
+        List<GameData.LetterProfile> alllletters=  GameData.Instance.allLetters;
+        LevelManager.Instance.Shuffle(alllletters);
+        int letterIndex= Random.Range(0, alllletters.Count);
+        ownedLetter.sprite = alllletters[letterIndex].letter;
+        letterType = alllletters[letterIndex].letterType;
+
+    }
+    public void Dead()
+    {
+        isDead = true;
+        agent.isStopped = true;
+        anim.SetTrigger("fall");
     }
 }

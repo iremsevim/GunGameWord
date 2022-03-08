@@ -901,6 +901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7755663052139519796, guid: 4a2f6d93d2927344099a4c17e5ea83f3, type: 3}
   enemy: {fileID: 1840237744140666188, guid: 37221b01023319f4989264e809cd97a8, type: 3}
+  bullet: {fileID: 8484989987666186516, guid: 56b01c84044668647995b9c0e11f49bb, type: 3}
   allLetters:
   - letterType: 0
     letter: {fileID: 21300000, guid: 02901cdc3cebaef428be1d88a41142bd, type: 3}

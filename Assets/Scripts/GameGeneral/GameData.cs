@@ -6,6 +6,7 @@ public class GameData : GameSingleActor<GameData>
 {
     public GameObject player;
     public GameObject enemy;
+    public GameObject bullet;
     public List<LetterProfile> allLetters;
       
     [System.Serializable]
