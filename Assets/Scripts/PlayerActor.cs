@@ -8,7 +8,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     public Animator anim;
     public List<LetterType> ownedWords;
     public Transform bulletPoint;
-
+    public ParticleSystem bulletHit;
     public override void ActorAwake()
     {
         Letter.onDownLetterButton = (string letter) =>
@@ -20,19 +20,28 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     }
     public void LetterTypeController(string enteredLetter)
     {
-       EnemyActor findedletter= EnemyActor.allenemies.Find(x => x.letterType.ToString() == enteredLetter && !x.isDead);
-        if(findedletter)
+        EnemyActor findedletter = EnemyActor.allenemies.Find(x => x.letterType.ToString() == enteredLetter && !x.isDead);
+        if (findedletter)
         {
-            TrueCompare(findedletter);
+             StartCoroutine(TrueCompare(findedletter));
         }
         else
         {
             Debug.Log("yanlýþ eþleþme");
         }
     }
-    public void TrueCompare(EnemyActor enemy)
+    public IEnumerator TrueCompare(EnemyActor enemy)
     {
-        LevelManager.Instance.CreateBullet(bulletPoint,enemy);
+        anim.SetTrigger("attack");
+        yield return new WaitForSeconds(0.2f);
+        LevelManager.Instance.CreateBullet(bulletPoint, enemy);
+      
+        bulletHit.Play();
+        Vector3 pos = transform.position - enemy.transform.position;
+        float rot_y = Mathf.Atan2(pos.x, pos.z) * Mathf.Rad2Deg-180;
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rot_y, transform.localEulerAngles.z);
+        
+
     }
 }
    
