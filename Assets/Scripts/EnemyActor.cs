@@ -12,6 +12,7 @@ public class EnemyActor : MonoBehaviour
     public Image ownedLetter;
     public LetterType letterType;
     public bool isDead = false;
+    public ParticleSystem smoke;
 
     private void Awake()
     {
@@ -45,7 +46,8 @@ public class EnemyActor : MonoBehaviour
         isDead = true;
         agent.isStopped = true;
         anim.SetTrigger("fall");
-        
+        smoke.Play();
+
 
     }
 
