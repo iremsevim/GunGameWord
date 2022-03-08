@@ -15,10 +15,7 @@ public class MakeWordPanel : GameSingleActor<MakeWordPanel>
         {
             Destroy(item.gameObject);
         }
-        if (aliveCounters.Count <= 0)
-        {
-            GameManager.Instance.FinishLevel(false);
-        }
+       
         foreach (var item in aliveCounters)
         {
            GameObject createdletter= Instantiate(GameData.Instance.UIletter, Vector3.zero, Quaternion.identity, letterCarrier);
@@ -28,6 +25,11 @@ public class MakeWordPanel : GameSingleActor<MakeWordPanel>
     }
     public void ShowLetterPanel(List<EnemyActor> aliveCounters)
     {
+        if (aliveCounters.Count <= 1)
+        {
+            GameManager.Instance.FinishLevel(false);
+            return;
+        }
         mainLetterPanel.SetActive(true);
         CreateLetter(aliveCounters);
        
