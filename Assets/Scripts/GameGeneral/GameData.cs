@@ -13,7 +13,7 @@ public class GameData : GameSingleActor<GameData>
     public List<LetterProfile> allLetters;
     [Header("UI")]
     public GameObject UIletter;
-  static  HashSet<string> allWords = new HashSet<string>();
+     static  HashSet<string> allWords = new HashSet<string>();
 
 
     public override void ActorAwake()

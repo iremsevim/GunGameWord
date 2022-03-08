@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
         {
           
             enemy.Dead(enemy);
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(Wait());
 
         });
@@ -21,6 +22,7 @@ public class Bullet : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             Destroy(enemy.gameObject);
             yield return new WaitForSeconds(0.1f);
+          
             if (EnemyActor.allenemies.Count <= 0)
             {
                 PlayerActor.Instance.FinishGame();

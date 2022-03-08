@@ -53,6 +53,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
         isGameWriteState = true;
         MakeWordPanel.Instance.ShowLetterPanel(enemieshit);
       
+
     }
 }
    

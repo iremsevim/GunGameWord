@@ -19,6 +19,7 @@ public class EnemyActor : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         allenemies.Add(this);
+        agent.speed = Random.Range(2f,2.5f);
         FindLetter();
 
     }

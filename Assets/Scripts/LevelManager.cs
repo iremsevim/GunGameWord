@@ -8,13 +8,15 @@ public class LevelManager : GameSingleActor<LevelManager>
     public List<Transform> enemyPoints;
     public List<GateActor> allGates;
     private int doorIndexer = 0;
+    public float enemycreaterTimer = 1.5f;
     public override void ActorStart()
     {
      
     
-        CreateEnemy();
+       StartCoroutine(CreateEnemy());
     }
-    private void CreateEnemy()
+    
+    private IEnumerator CreateEnemy()
     {
          int enemyIndexer = 0;
          Shuffle(enemyPoints);
@@ -29,9 +31,11 @@ public class LevelManager : GameSingleActor<LevelManager>
                 enemyIndexer = 0;
             }
             enemyIndexer++;
-         GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
-            findedenemy.GetComponent<EnemyActor>().GoToTargetPos(FindTargetDoor());
-
+             GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
+            EnemyActor enemyy=findedenemy.GetComponent<EnemyActor>();
+            enemyy.anim.speed = Random.Range(0.75f, 1f);
+            enemyy.GoToTargetPos(FindTargetDoor());
+            yield return new WaitForSeconds(Random.Range(0.5f, 0.75f));
            }
     }
     private Vector3 FindTargetDoor()
