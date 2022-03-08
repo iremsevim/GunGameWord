@@ -10,9 +10,25 @@ public class Bullet : MonoBehaviour
     {
         transform.DOMove(enemy.transform.position, Random.Range(0.1f, 0.2f)).OnComplete(() =>
         {
-            enemy.Dead();
-            Destroy(gameObject);
+            enemy.Dead(enemy);
+            StartCoroutine(Wait());
 
         });
+        IEnumerator Wait()
+        {
+          
+            Destroy(enemy.gameObject);
+            yield return new WaitForSeconds(0.1f);
+            if (EnemyActor.allenemies.Count <= 0)
+            {
+                PlayerActor.Instance.FinishGame();
+
+            }
+            Destroy(gameObject);
+
+
+
+
+        }
     }
 }

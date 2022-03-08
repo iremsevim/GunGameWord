@@ -8,6 +8,8 @@ public class GameData : GameSingleActor<GameData>
     public GameObject enemy;
     public GameObject bullet;
     public List<LetterProfile> allLetters;
+    [Header("UI")]
+    public GameObject UIletter;
       
     [System.Serializable]
     public class LetterProfile

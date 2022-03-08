@@ -24,6 +24,8 @@ public class EnemyActor : MonoBehaviour
     {
         allenemies.Remove(this);
     }
+
+
     public void GoToTargetPos(Vector3 pos)
     {
         agent.SetDestination(pos);
@@ -38,10 +40,26 @@ public class EnemyActor : MonoBehaviour
         letterType = alllletters[letterIndex].letterType;
 
     }
-    public void Dead()
+    public void Dead(EnemyActor shuttedenemy)
     {
         isDead = true;
         agent.isStopped = true;
         anim.SetTrigger("fall");
+        
+
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out ITriggerListener trigger))
+        {
+            trigger.OnTouched(this);
+        }
+    }
+    public void OnTouchedGate(GateActor gate)
+    {
+
+       Destroy(gameObject);
+       
     }
 }
