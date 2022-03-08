@@ -31,7 +31,7 @@ public class LevelManager : GameSingleActor<LevelManager>
                 enemyIndexer = 0;
             }
             enemyIndexer++;
-             GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
+            GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
             EnemyActor enemyy=findedenemy.GetComponent<EnemyActor>();
             enemyy.anim.speed = Random.Range(0.75f, 1f);
             enemyy.GoToTargetPos(FindTargetDoor());

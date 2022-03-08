@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using Coskunerov.Resources;
 using Coskunerov.Utilities;
+
 public class EnemyActor : MonoBehaviour
 {
     public static List<EnemyActor> allenemies = new List<EnemyActor>();
@@ -23,6 +24,13 @@ public class EnemyActor : MonoBehaviour
         FindLetter();
 
     }
+    public void Update()
+    {
+        var fwd = Camera.main.transform.forward;
+        fwd.y = 0.0F;
+        ownedLetter.transform.rotation = Quaternion.LookRotation(fwd);
+    }
+
     private void OnDestroy()
     {
         allenemies.Remove(this);
