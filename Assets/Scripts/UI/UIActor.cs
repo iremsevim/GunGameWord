@@ -91,9 +91,16 @@ public class UIActor : GameSingleActor<UIActor>
     {
         winPanel.SetActive(false);
         failPanel.SetActive(true);
-       //Elephant.LevelFailed(Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex);
+     
+        //Elephant.LevelFailed(Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex);
     }
-   
+    [GE(BaseGameEvents.FinishGame)]
+    public void FinishGame()
+    {
+       
+        ShowHideLetterPanel(false);
+      
+    }
     public void Retry()
     {
      
@@ -107,8 +114,9 @@ public class UIActor : GameSingleActor<UIActor>
     {
         winPanel.SetActive(false);
         failPanel.SetActive(false);
-      
-       // PlayerController.Instance.LevelLoaded();
+        ShowHideLetterPanel(true);
+
+        // PlayerController.Instance.LevelLoaded();
         typedletters.text = string.Empty;
         PlayerActor.Instance.ownedWords.Clear();
 

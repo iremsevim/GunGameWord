@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23efd6eca67045547bd82b36f5a9f601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  specialEnemyCount: 3
+  specialEnemyCount: 5
   enemyPoints:
   - {fileID: 6922197221311064126}
   - {fileID: 25724676561669272}
