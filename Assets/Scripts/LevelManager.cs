@@ -29,12 +29,13 @@ public class LevelManager : GameSingleActor<LevelManager>
         for (int i = 0; i < specialEnemyCount; i++)
         {
             Transform point = enemyPoints[enemyIndexer];
-            if(enemyIndexer>=enemyPoints.Count)
+            enemyIndexer++;
+            if (enemyIndexer>=enemyPoints.Count)
             {
                 enemyIndexer = 0;
             }
             
-            enemyIndexer++;
+           
             GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
             EnemyActor enemyy=findedenemy.GetComponent<EnemyActor>();
            

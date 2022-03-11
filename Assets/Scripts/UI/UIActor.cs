@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Coskunerov.EventBehaviour;
 using Coskunerov.EventBehaviour.Attributes;
 //using ElephantSDK;
+using DG.Tweening;
 
 
 public class UIActor : GameSingleActor<UIActor>
@@ -20,10 +21,12 @@ public class UIActor : GameSingleActor<UIActor>
     [Header("UI Panels")]
     public GameObject winPanel;
     public GameObject failPanel;
+    public List<Image> healths;
+    public int heathCounter;
 
     public override void ActorAwake()
     {
-        
+        heathCounter = healths.Count;
       //  panelColor = letterpanel.GetComponent<Image>().color;
     }
 
@@ -38,6 +41,22 @@ public class UIActor : GameSingleActor<UIActor>
             letterpanel.DOMove(downPos.position, 0.75f);
         }
     }
+    public void DecreaseHealth()
+    {
+        
+        if (heathCounter <= 0) return;
+        heathCounter--;
+        healths[heathCounter].transform.DOScale(healths[heathCounter].transform.localScale/2f, 0.25f).OnComplete(() => 
+       {
+           healths[heathCounter].gameObject.SetActive(false);
+           healths[heathCounter].transform.DOScale(healths[heathCounter].transform.localScale * 2f, 0.25f);
+        
+
+       });
+     
+        
+    }
+        
     public IEnumerator ClearTypedLetter(bool status)
     {
         if(status)
@@ -116,7 +135,7 @@ public class UIActor : GameSingleActor<UIActor>
         failPanel.SetActive(false);
         ShowHideLetterPanel(true);
 
-        // PlayerController.Instance.LevelLoaded();
+        PlayerActor.Instance.LevelLoaded();
         typedletters.text = string.Empty;
         PlayerActor.Instance.ownedWords.Clear();
 

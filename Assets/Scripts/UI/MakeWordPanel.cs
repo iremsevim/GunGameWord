@@ -29,7 +29,7 @@ public class MakeWordPanel : GameSingleActor<MakeWordPanel>
     }
     public void ShowLetterPanel(List<EnemyActor> aliveCounters)
     {
-        if (aliveCounters.Count <= 1)
+        if(UIActor.Instance.heathCounter <= 0)
         {
             GameManager.Instance.FinishLevel(false);
             return;

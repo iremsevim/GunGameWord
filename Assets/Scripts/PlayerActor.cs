@@ -50,11 +50,17 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     }
     public void FinishGame()
     {
-        Debug.Log("MUS");
+      
         isGameWriteState = true;
         MakeWordPanel.Instance.ShowLetterPanel(enemieshit);
       
 
+    }
+  public void  LevelLoaded()
+    {
+        SwitchCamera.Instance.Switch(SwitchCamera.CameraType.firstCamera);
+        MakeWordPanel.Instance.mainLetterPanel.SetActive(false);
+        UIActor.Instance.healths.ForEach(X => X.gameObject.SetActive(true));
     }
 }
    

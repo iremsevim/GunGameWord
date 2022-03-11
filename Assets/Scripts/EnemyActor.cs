@@ -95,7 +95,9 @@ public class EnemyActor : MonoBehaviour
     {
         ParticleFXDisplayer smoke = new ParticleFXDisplayer() { destroyTime = 4f, particleID = "smoke", position = transform.position };
         smoke.Display();
-       Destroy(gameObject);
+        UIActor.Instance.DecreaseHealth();
+        Destroy(gameObject,0.1F);
+       
        
     }
 }
