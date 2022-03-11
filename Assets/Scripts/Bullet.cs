@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     {
         transform.DOMove(enemy.transform.position, Random.Range(0.1f, 0.2f)).OnComplete(() =>
         {
-          
+             
             enemy.Dead(enemy);
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(Wait());
@@ -21,13 +21,15 @@ public class Bullet : MonoBehaviour
             enemy.smoke.transform.SetParent(CustomLevelActor.Instance.transform);
             Destroy(enemy.smoke.gameObject, 3F);
             enemy.smoke.Play();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.3f);
             Destroy(enemy.gameObject);
             yield return new WaitForSeconds(0.1f);
           
             if (EnemyActor.allenemies.Count <= 0)
             {
-                PlayerActor.Instance.FinishGame();
+               
+                SwitchCamera.Instance.Switch(SwitchCamera.CameraType.keysCamera);
+               Coskunerov.Managers.GameManager.Instance.StartCoroutine(Keys.Instance.ZoomKeys());
 
             }
             Destroy(gameObject);

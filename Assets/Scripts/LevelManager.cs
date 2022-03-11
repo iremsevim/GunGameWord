@@ -14,6 +14,8 @@ public class LevelManager : GameSingleActor<LevelManager>
      
     
        StartCoroutine(CreateEnemy());
+      
+
     }
     
     private IEnumerator CreateEnemy()
@@ -23,6 +25,7 @@ public class LevelManager : GameSingleActor<LevelManager>
          Shuffle(allGates);
 
         GameObject enemy= GameData.Instance.enemy;
+        int vowelIndex=Random.Range(0, specialEnemyCount);
         for (int i = 0; i < specialEnemyCount; i++)
         {
             Transform point = enemyPoints[enemyIndexer];
@@ -30,13 +33,21 @@ public class LevelManager : GameSingleActor<LevelManager>
             {
                 enemyIndexer = 0;
             }
+            
             enemyIndexer++;
             GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
             EnemyActor enemyy=findedenemy.GetComponent<EnemyActor>();
+           
+            if (vowelIndex <= i)
+            {
+                enemyy.ishavevowel = true;
+            }
+            enemyy.FindLetter();
             enemyy.anim.speed = Random.Range(0.75f, 1f);
             enemyy.GoToTargetPos(FindTargetDoor());
             yield return new WaitForSeconds(Random.Range(0.5f, 0.75f));
            }
+      
     }
     private Vector3 FindTargetDoor()
     {

@@ -18,7 +18,9 @@ public class GateActor : MonoBehaviour, ITriggerListener
             yield return new WaitForSeconds(0.1f);
             if (EnemyActor.allenemies.Count <= 0)
             {
-                PlayerActor.Instance.FinishGame();
+
+                SwitchCamera.Instance.Switch(SwitchCamera.CameraType.keysCamera);
+               StartCoroutine(Keys.Instance. ZoomKeys());
             }
         }
     }

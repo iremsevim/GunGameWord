@@ -959,6 +959,8 @@ MonoBehaviour:
   letterType: 0
   isDead: 0
   smoke: {fileID: 4790417801693646032}
+  ishavevowel: 0
+  canvas: {fileID: 207086992738024637}
 --- !u!195 &2171212193369246954
 NavMeshAgent:
   m_ObjectHideFlags: 0

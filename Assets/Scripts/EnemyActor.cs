@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using Coskunerov.Resources;
 using Coskunerov.Utilities;
+using DG.Tweening;
 
 public class EnemyActor : MonoBehaviour
 {
@@ -15,13 +16,17 @@ public class EnemyActor : MonoBehaviour
     public LetterType letterType;
     public bool isDead = false;
     public ParticleSystem smoke;
-
+    public bool ishavevowel;
+    public Transform canvas;
+    
+   
     private void Awake()
     {
+     
         anim = GetComponent<Animator>();
         allenemies.Add(this);
         agent.speed = Random.Range(2f,2.5f);
-        FindLetter();
+       
 
     }
     public void Update()
@@ -44,12 +49,17 @@ public class EnemyActor : MonoBehaviour
     }
     public void FindLetter()
     {
+          
         List<GameData.LetterProfile> alllletters=  GameData.Instance.allLetters;
         LevelManager.Instance.Shuffle(alllletters);
-        int letterIndex= Random.Range(0, alllletters.Count);
-        ownedLetter.sprite = alllletters[letterIndex].letter;
-        letterType = alllletters[letterIndex].letterType;
-
+        List<GameData.LetterProfile> vowels = alllletters.FindAll(x=>x.isvowel== ishavevowel);
+         int index= Random.Range(0, vowels.Count);
+        ownedLetter.sprite = vowels[index].letter;
+       letterType = vowels[index].letterType;
+        
+       
+        
+        
     }
     public void Dead(EnemyActor shuttedenemy)
     {
@@ -57,9 +67,22 @@ public class EnemyActor : MonoBehaviour
         agent.isStopped = true;
         anim.SetTrigger("fall");
         smoke.Play();
+        canvas.SetParent(null);
+        canvas.transform.position = transform.position + Vector3.up * 3f;
+        canvas.transform.DOScale(canvas.transform.localScale / 2, 0.75f);
+        var sequence = DOTween.Sequence().
+            Append(canvas.transform.DOMove(Keys.Instance.keyPoint.position, 0.75f)).
+            Append(Keys.Instance.transform.DOPunchScale(Keys.Instance.transform.localScale * 1.45f, 0.15f)).
+            Append(Keys.Instance.transform.DOPunchScale(Keys.Instance.transform.localScale / 1.45f, 0.15f)).
+            OnComplete(() =>
+            {
+               
+                Destroy(canvas.gameObject);
+            });
 
-
+       
     }
+    
 
     public void OnTriggerEnter(Collider other)
     {

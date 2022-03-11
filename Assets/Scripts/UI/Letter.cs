@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 
 public class Letter : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Letter : MonoBehaviour
     
     private void Awake()
     {
-        holdingLetter = transform.GetChild(0).GetComponent<Text>().text;
+        holdingLetter = transform.GetChild(3).GetComponent<TextMeshProUGUI>().text.ToUpper();
         selfButton = GetComponent<Button>();
     }
     private void Start()

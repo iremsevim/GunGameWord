@@ -39,7 +39,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     {
        
         anim.SetTrigger("attack");
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.25f);
         LevelManager.Instance.CreateBullet(bulletPoint, enemy);
         bulletHit.Play();
         Vector3 pos = transform.position - enemy.transform.position;
@@ -50,6 +50,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     }
     public void FinishGame()
     {
+        Debug.Log("MUS");
         isGameWriteState = true;
         MakeWordPanel.Instance.ShowLetterPanel(enemieshit);
       

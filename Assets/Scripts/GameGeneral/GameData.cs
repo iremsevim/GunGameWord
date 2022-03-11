@@ -30,6 +30,7 @@ public class GameData : GameSingleActor<GameData>
         {
             allWords.Add(item.ToLower());
         }
+       
     }
 
     public static bool CheckWord(string word)
@@ -43,6 +44,7 @@ public class GameData : GameSingleActor<GameData>
     {
         public LetterType letterType;
         public Sprite letter;
+        public bool isvowel;
     }
 }
 public enum LetterType

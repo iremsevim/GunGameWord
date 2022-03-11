@@ -24,7 +24,7 @@ public class UIActor : GameSingleActor<UIActor>
     public override void ActorAwake()
     {
         
-        panelColor = letterpanel.GetComponent<Image>().color;
+      //  panelColor = letterpanel.GetComponent<Image>().color;
     }
 
     public void ShowHideLetterPanel(bool status)
