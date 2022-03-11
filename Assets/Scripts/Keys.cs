@@ -8,11 +8,14 @@ public class Keys : GameSingleActor<Keys>
 {
     public Transform keyPoint;
     public Transform rotatableKey;
-    public IEnumerator ZoomKeys()
+    public void ZoomKeys()
     {
         
-        rotatableKey.DOLocalRotate(rotatableKey.transform.localEulerAngles+Vector3.up*480, 4f,RotateMode.FastBeyond360);
-        yield return new WaitForSeconds(4f);
-        PlayerActor.Instance.FinishGame();
+        rotatableKey.DOLocalRotate(rotatableKey.transform.localEulerAngles+Vector3.up*480, 2f,RotateMode.FastBeyond360).OnComplete(()=> 
+        {
+            PlayerActor.Instance.FinishGame();
+        });
+       
+        
     }
 }

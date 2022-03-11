@@ -20,7 +20,7 @@ public class GateActor : MonoBehaviour, ITriggerListener
             {
 
                 SwitchCamera.Instance.Switch(SwitchCamera.CameraType.keysCamera);
-               StartCoroutine(Keys.Instance. ZoomKeys());
+              Keys.Instance. ZoomKeys();
             }
         }
     }

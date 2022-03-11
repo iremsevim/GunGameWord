@@ -29,8 +29,7 @@ public class Bullet : MonoBehaviour
             {
                
                 SwitchCamera.Instance.Switch(SwitchCamera.CameraType.keysCamera);
-               Coskunerov.Managers.GameManager.Instance.StartCoroutine(Keys.Instance.ZoomKeys());
-
+             Keys.Instance.ZoomKeys();
             }
             Destroy(gameObject);
 
