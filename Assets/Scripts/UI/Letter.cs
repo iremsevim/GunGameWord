@@ -11,6 +11,8 @@ public class Letter : MonoBehaviour
     private Button selfButton;
     public static System.Action<string> onDownLetterButton;
     public static bool letterLocked;
+  
+  
     
     private void Awake()
     {
@@ -24,11 +26,17 @@ public class Letter : MonoBehaviour
     public void PressKey()
     {
         if (letterLocked) return;
+      
+       
         if(PlayerActor.Instance.isGameWriteState)
         {
-            if(PlayerActor.Instance.ownedWords.Any(x=>x.ToString()==holdingLetter))
+     
+            if (PlayerActor.Instance.ownedWords.Any(x=>x.ToString()==holdingLetter))
             {
                 UIActor.Instance.typedletters.text += holdingLetter;
+               MakeWordPanel.Instance. writedLetters.Add(holdingLetter);
+                
+               
             }
           
         }

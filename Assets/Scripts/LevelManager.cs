@@ -4,16 +4,18 @@ using UnityEngine;
 using Coskunerov.Actors;
 public class LevelManager : GameSingleActor<LevelManager>
 {
-    public int specialEnemyCount;
+  
     public List<Transform> enemyPoints;
     public List<GateActor> allGates;
     private int doorIndexer = 0;
     public float enemycreaterTimer = 1.5f;
+
     public override void ActorStart()
     {
      
     
        StartCoroutine(CreateEnemy());
+       
       
 
     }
@@ -25,8 +27,8 @@ public class LevelManager : GameSingleActor<LevelManager>
          Shuffle(allGates);
 
         GameObject enemy= GameData.Instance.enemy;
-        int vowelIndex=Random.Range(0, specialEnemyCount);
-        for (int i = 0; i < specialEnemyCount; i++)
+       
+        for (int i = 0; i < 5* Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex; i++)
         {
             Transform point = enemyPoints[enemyIndexer];
             enemyIndexer++;
@@ -38,8 +40,8 @@ public class LevelManager : GameSingleActor<LevelManager>
            
             GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
             EnemyActor enemyy=findedenemy.GetComponent<EnemyActor>();
-           
-            if (vowelIndex <= i)
+
+            if (i%3== 0)
             {
                 enemyy.ishavevowel = true;
             }
@@ -48,7 +50,8 @@ public class LevelManager : GameSingleActor<LevelManager>
             enemyy.GoToTargetPos(FindTargetDoor());
             yield return new WaitForSeconds(Random.Range(0.5f, 0.75f));
            }
-      
+       
+           
     }
     private Vector3 FindTargetDoor()
     {
