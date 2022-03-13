@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using Coskunerov.EventBehaviour;
 using Coskunerov.EventBehaviour.Attributes;
 //using ElephantSDK;
-using DG.Tweening;
+using System.Linq;
 
 
 public class UIActor : GameSingleActor<UIActor>
@@ -142,7 +142,7 @@ public class UIActor : GameSingleActor<UIActor>
         typedletters.text = string.Empty;
         PlayerActor.Instance.ownedWords.Clear();
 
-
+        FindObjectsOfType<Letter>().ToList().ForEach(x => x.DisableEnable(true));
 
 
     }

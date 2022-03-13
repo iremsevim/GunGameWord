@@ -34,7 +34,6 @@ public class MakeWordPanel : GameSingleActor<MakeWordPanel>
     }
     public void ShowLetterPanel(List<EnemyActor> aliveCounters)
     {
-        
         if(UIActor.Instance.heathCounter <= 0)
         {
             GameManager.Instance.FinishLevel(false);
@@ -43,17 +42,16 @@ public class MakeWordPanel : GameSingleActor<MakeWordPanel>
         mainLetterPanel.SetActive(true);
         CreateLetter(aliveCounters);
 
+        FindObjectsOfType<Letter>().ToList().ForEach(x => x.DisableEnable(PlayerActor.Instance.ownedWords.Any(r=>r.ToString()==x.holdingLetter)));
     }
    
-public void CheckAnswer()
+    public void CheckAnswer()
     {
         if (GameData.CheckWord(UIActor.Instance.typedletters.text))
         {
-           
-                Debug.Log("win");
-                GameManager.Instance.FinishLevel(true);
+            Debug.Log("win");
+            GameManager.Instance.FinishLevel(true);
         }
-        
         else
         {
             
@@ -67,7 +65,6 @@ public void CheckAnswer()
                     Letter.letterLocked = false;
                     applyButton.SetActive(true);
                 });
-
         }
     }
 }

@@ -11,13 +11,15 @@ public class Letter : MonoBehaviour
     private Button selfButton;
     public static System.Action<string> onDownLetterButton;
     public static bool letterLocked;
-  
-  
-    
+    private TextMeshProUGUI textMeshProUGUI;
+    private Image selfImage;
+
     private void Awake()
     {
-        holdingLetter = transform.GetChild(3).GetComponent<TextMeshProUGUI>().text.ToUpper();
+        textMeshProUGUI = transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+        holdingLetter = textMeshProUGUI.text.ToUpper();
         selfButton = GetComponent<Button>();
+        selfImage = GetComponent<Image>();
     }
     private void Start()
     {
@@ -26,23 +28,24 @@ public class Letter : MonoBehaviour
     public void PressKey()
     {
         if (letterLocked) return;
-      
-       
-        if(PlayerActor.Instance.isGameWriteState)
+
+        if (PlayerActor.Instance.isGameWriteState)
         {
-     
-            if (PlayerActor.Instance.ownedWords.Any(x=>x.ToString()==holdingLetter))
+            if (PlayerActor.Instance.ownedWords.Any(x => x.ToString() == holdingLetter))
             {
                 UIActor.Instance.typedletters.text += holdingLetter;
-               MakeWordPanel.Instance. writedLetters.Add(holdingLetter);
-                
-               
+                MakeWordPanel.Instance.writedLetters.Add(holdingLetter);
             }
-          
         }
         onDownLetterButton?.Invoke(holdingLetter);
-   
 
+
+    }
+
+    public void DisableEnable(bool status)
+    {
+        selfImage.raycastTarget = status;
+        textMeshProUGUI.gameObject.SetActive(status);
     }
     
    
