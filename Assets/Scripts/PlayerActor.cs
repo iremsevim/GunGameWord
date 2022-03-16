@@ -41,6 +41,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
        
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(0.25f);
+        if (enemy == null) yield break;
         LevelManager.Instance.CreateBullet(bulletPoint, enemy);
         bulletHit.Play();
         Vector3 pos = transform.position - enemy.transform.position;

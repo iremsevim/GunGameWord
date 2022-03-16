@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
    
     public void ThrowToEnemy(EnemyActor enemy)
     {
+        if (enemy==null)return;
         transform.DOMove(enemy.transform.position, Random.Range(0.1f, 0.2f)).OnComplete(() =>
         {
              
@@ -24,6 +25,7 @@ public class Bullet : MonoBehaviour
             Destroy(enemy.smoke.gameObject, 3F);
             enemy.smoke.Play();
             yield return new WaitForSeconds(0.3f);
+            if (enemy == null) yield break;
             Destroy(enemy.gameObject);
             yield return new WaitForSeconds(0.1f);
           

@@ -67,6 +67,7 @@ public class EnemyActor : MonoBehaviour
     {
         isDead = true;
         agent.isStopped = true;
+     
         anim.SetTrigger("fall");
         smoke.Play();
         canvas.SetParent(null);
@@ -81,8 +82,9 @@ public class EnemyActor : MonoBehaviour
                
                 Destroy(canvas.gameObject);
             });
+        allenemies.Remove(this);
 
-       
+
     }
     public static void StopMovement()
     {
