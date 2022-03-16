@@ -12,7 +12,8 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     public List<EnemyActor> enemieshit;
     public bool isGameWriteState;
     public override void ActorAwake()
-    {
+    { 
+
         Letter.onDownLetterButton = (string letter) =>
         {
            
