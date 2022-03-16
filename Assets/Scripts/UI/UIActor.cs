@@ -147,7 +147,7 @@ public class UIActor : GameSingleActor<UIActor>
      
         Coskunerov.Managers.GameManager.Instance.RestartLevel();
         PlayerActor.Instance.ownedWords.Clear();
-        //PlayerController.Instance.LevelLoaded();
+        PlayerActor.Instance.LevelLoaded();
        
     }
     [GE(BaseGameEvents.LevelLoaded)]

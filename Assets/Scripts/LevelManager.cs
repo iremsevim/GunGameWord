@@ -20,7 +20,7 @@ public class LevelManager : GameSingleActor<LevelManager>
 
     }
     
-    private IEnumerator CreateEnemy()
+    public IEnumerator CreateEnemy()
     {
          int enemyIndexer = 0;
          Shuffle(enemyPoints);
