@@ -25,12 +25,8 @@ public class UIActor : GameSingleActor<UIActor>
     public int heathCounter;
     public bool finishHealth;
 
-    public override void ActorAwake()
-    {
-       
-      //  panelColor = letterpanel.GetComponent<Image>().color;
-    }
-
+   
+ 
     public void ShowHideLetterPanel(bool status)
     {
         if (status)
