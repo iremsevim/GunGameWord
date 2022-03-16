@@ -64,6 +64,7 @@ public class UIActor : GameSingleActor<UIActor>
      
         
     }
+
     public void Fail()
     {
         Coskunerov.Managers.GameManager.Instance.FinishLevel(false);
@@ -159,6 +160,9 @@ public class UIActor : GameSingleActor<UIActor>
 
         FindObjectsOfType<Letter>().ToList().ForEach(x => x.DisableEnable(true));
 
+        heathCounter = 5;
+        DecreaseHealth();
+        
 
     }
     public void Delete()
