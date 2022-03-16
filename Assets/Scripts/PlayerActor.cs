@@ -15,9 +15,8 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     {
         Letter.onDownLetterButton = (string letter) =>
         {
-            ownedWords.Add(GameData.Instance.allLetters.Find(X => X.letterType.ToString() == letter).letterType);
+           
             LetterTypeController(letter);
-
         };
     }
     public void LetterTypeController(string enteredLetter)
@@ -28,11 +27,12 @@ public class PlayerActor : GameSingleActor<PlayerActor>
         if (findedletter)
         {
              StartCoroutine(TrueCompare(findedletter));
+             ownedWords.Add(GameData.Instance.allLetters.Find(X => X.letterType.ToString() == enteredLetter).letterType);
             enemieshit.Add(findedletter);
         }
         else
         {
-            Debug.Log("yanlýþ eþleþme");
+            Debug.Log("yanl?? e?le?me");
         }
     }
     public IEnumerator TrueCompare(EnemyActor enemy)
