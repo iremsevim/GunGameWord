@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class Bullet : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Bullet : MonoBehaviour
         {
              
             enemy.Dead(enemy);
+            MMVibrationManager.Haptic(HapticTypes.RigidImpact);
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(Wait());
 

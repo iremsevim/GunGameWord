@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using Coskunerov.Resources;
 using Coskunerov.Utilities;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
+
 
 public class EnemyActor : MonoBehaviour
 {
@@ -99,6 +101,7 @@ public class EnemyActor : MonoBehaviour
     {
         ParticleFXDisplayer smoke = new ParticleFXDisplayer() { destroyTime = 4f, particleID = "smoke", position = transform.position };
         smoke.Display();
+        MMVibrationManager.Haptic(HapticTypes.SoftImpact);
         UIActor.Instance.DecreaseHealth();
         Destroy(gameObject,0.1F);
        

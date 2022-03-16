@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Coskunerov.Actors;
-
+using MoreMountains.NiceVibrations;
 public class PlayerActor : GameSingleActor<PlayerActor>
 {
     public Animator anim;
@@ -32,7 +32,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
         }
         else
         {
-            Debug.Log("yanl?? e?le?me");
+            Debug.Log("yanlis eþleþme");
         }
     }
     public IEnumerator TrueCompare(EnemyActor enemy)
