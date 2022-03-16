@@ -82,7 +82,11 @@ public class EnemyActor : MonoBehaviour
 
        
     }
-    
+    public static void StopMovement()
+    {
+        allenemies.ForEach(x => x.agent.isStopped = true);
+        allenemies.ForEach(x => x.anim.enabled = false);
+    }
 
     public void OnTriggerEnter(Collider other)
     {

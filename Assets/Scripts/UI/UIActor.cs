@@ -23,10 +23,11 @@ public class UIActor : GameSingleActor<UIActor>
     public GameObject failPanel;
     public List<Image> healths;
     public int heathCounter;
+    public bool finishHealth;
 
     public override void ActorAwake()
     {
-        heathCounter = healths.Count;
+       
       //  panelColor = letterpanel.GetComponent<Image>().color;
     }
 
@@ -44,17 +45,35 @@ public class UIActor : GameSingleActor<UIActor>
     public void DecreaseHealth()
     {
         
-        if (heathCounter <= 0) return;
+        if (heathCounter <= 0)
+        {
+            finishHealth = true;
+            healths.ForEach(x => x.gameObject.SetActive(false));
+            Fail();
+            return;
+        }
+
+        
+        healths.ForEach(x => x.gameObject.SetActive(false));
         heathCounter--;
+        healths[heathCounter].gameObject.SetActive(true);
         healths[heathCounter].transform.DOScale(healths[heathCounter].transform.localScale/2f, 0.25f).OnComplete(() => 
        {
-           healths[heathCounter].gameObject.SetActive(false);
+          
            healths[heathCounter].transform.DOScale(healths[heathCounter].transform.localScale * 2f, 0.25f);
-        
+         
+
 
        });
      
         
+    }
+    public void Fail()
+    {
+        Coskunerov.Managers.GameManager.Instance.FinishLevel(false);
+        EnemyActor.StopMovement();
+       
+       
     }
         
     public IEnumerator ClearTypedLetter(bool status)

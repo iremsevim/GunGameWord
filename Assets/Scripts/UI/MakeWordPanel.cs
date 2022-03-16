@@ -35,8 +35,9 @@ public class MakeWordPanel : GameSingleActor<MakeWordPanel>
     public void ShowLetterPanel(List<EnemyActor> aliveCounters)
     {
         
-        if(UIActor.Instance.heathCounter <= 0)
+        if(UIActor.Instance.finishHealth)
         {
+            Debug.Log("ÝREM");
             GameManager.Instance.FinishLevel(false);
             return;
         }

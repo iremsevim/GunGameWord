@@ -60,7 +60,8 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     {
         SwitchCamera.Instance.Switch(SwitchCamera.CameraType.firstCamera);
         MakeWordPanel.Instance.mainLetterPanel.SetActive(false);
-        UIActor.Instance.healths.ForEach(X => X.gameObject.SetActive(true));
+       UIActor.Instance.healths.ForEach(x => x.gameObject.SetActive(false));
+        UIActor.Instance. healths[UIActor.Instance.heathCounter-1].gameObject.SetActive(true);
     }
 }
    

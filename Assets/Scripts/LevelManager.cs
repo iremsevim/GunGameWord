@@ -30,6 +30,7 @@ public class LevelManager : GameSingleActor<LevelManager>
        
         for (int i = 0; i < 5* Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex; i++)
         {
+            if (UIActor.Instance.finishHealth) yield break;
             Transform point = enemyPoints[enemyIndexer];
             enemyIndexer++;
             if (enemyIndexer>=enemyPoints.Count)
