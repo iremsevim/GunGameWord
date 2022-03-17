@@ -28,7 +28,7 @@ public class LevelManager : GameSingleActor<LevelManager>
 
         GameObject enemy= GameData.Instance.enemy;
        
-        for (int i = 0; i < 5* Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex; i++)
+        for (int i = 0; i < 3* (Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex+1); i++)
         {
             if (UIActor.Instance.finishHealth) yield break;
             Transform point = enemyPoints[enemyIndexer];
@@ -41,8 +41,9 @@ public class LevelManager : GameSingleActor<LevelManager>
            
             GameObject findedenemy=Instantiate(enemy, point.position, point.rotation);
             EnemyActor enemyy=findedenemy.GetComponent<EnemyActor>();
+            enemyy.transform.SetParent(CustomLevelActor.Instance.transform);
 
-            if (i%3== 0)
+            if (i%2== 0)
             {
                 enemyy.ishavevowel = true;
             }

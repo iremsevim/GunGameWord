@@ -63,7 +63,6 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     {
         SwitchCamera.Instance.Switch(SwitchCamera.CameraType.firstCamera);
         MakeWordPanel.Instance.mainLetterPanel.SetActive(false);
-        EnemyActor.allenemies.ForEach(x => Destroy(x.gameObject));
         UIActor.Instance.finishHealth = false;
       
 
