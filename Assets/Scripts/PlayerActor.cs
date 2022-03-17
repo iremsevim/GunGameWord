@@ -24,9 +24,10 @@ public class PlayerActor : GameSingleActor<PlayerActor>
     {
         if (isGameWriteState) return;
 
-        EnemyActor findedletter = EnemyActor.allenemies.Find(x => x.letterType.ToString() == enteredLetter && !x.isDead);
+        EnemyActor findedletter = EnemyActor.allenemies.Find(x => x.letterType.ToString() == enteredLetter && !x.isDead &&!x.isShutted);
         if (findedletter)
         {
+            findedletter.isShutted = true;
              StartCoroutine(TrueCompare(findedletter));
              ownedWords.Add(GameData.Instance.allLetters.Find(X => X.letterType.ToString() == enteredLetter).letterType);
             enemieshit.Add(findedletter);
@@ -41,7 +42,7 @@ public class PlayerActor : GameSingleActor<PlayerActor>
        
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(0.25f);
-        if (enemy == null) yield break;
+        if (enemy == null ) yield break;
         LevelManager.Instance.CreateBullet(bulletPoint, enemy);
         bulletHit.Play();
         Vector3 pos = transform.position - enemy.transform.position;
