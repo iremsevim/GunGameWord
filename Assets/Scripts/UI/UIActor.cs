@@ -24,9 +24,14 @@ public class UIActor : GameSingleActor<UIActor>
     public List<Image> healths;
     public int heathCounter;
     public bool finishHealth;
+    private Vector3 scale;
 
-   
- 
+
+    public override void ActorAwake()
+    {
+
+        scale = healths[0].transform.localScale;
+    }
     public void ShowHideLetterPanel(bool status)
     {
         if (status)
@@ -53,10 +58,11 @@ public class UIActor : GameSingleActor<UIActor>
         healths.ForEach(x => x.gameObject.SetActive(false));
         heathCounter--;
         healths[heathCounter].gameObject.SetActive(true);
+      
         healths[heathCounter].transform.DOScale(healths[heathCounter].transform.localScale/2f, 0.25f).OnComplete(() => 
        {
           
-           healths[heathCounter].transform.DOScale(healths[heathCounter].transform.localScale * 2f, 0.25f);
+           healths[heathCounter].transform.DOScale(scale, 0.25f);
          
 
 
