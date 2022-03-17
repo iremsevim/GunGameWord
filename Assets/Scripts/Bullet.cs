@@ -9,7 +9,8 @@ public class Bullet : MonoBehaviour
    
     public void ThrowToEnemy(EnemyActor enemy)
     {
-        if (enemy==null)return;
+        if (enemy==null || enemy.isShutted)return;
+        enemy.isShutted = true;
         transform.DOMove(enemy.transform.position, Random.Range(0.1f, 0.2f)).OnComplete(() =>
         {
              

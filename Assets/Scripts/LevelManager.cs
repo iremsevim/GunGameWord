@@ -80,6 +80,7 @@ public class LevelManager : GameSingleActor<LevelManager>
     }
     public void CreateBullet(Transform bulletPoint,EnemyActor enemy)
     {
+       
         GameObject bullet = Instantiate(GameData.Instance.bullet, bulletPoint.transform.position, bulletPoint.transform.rotation);
         bullet.GetComponent<Bullet>().ThrowToEnemy(enemy);
     }

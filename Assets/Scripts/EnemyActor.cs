@@ -20,6 +20,7 @@ public class EnemyActor : MonoBehaviour
     public ParticleSystem smoke;
     public bool ishavevowel;
     public Transform canvas;
+    public bool isShutted;
     
    
     private void Awake()
@@ -73,6 +74,7 @@ public class EnemyActor : MonoBehaviour
         canvas.SetParent(null);
         canvas.transform.position = transform.position + Vector3.up * 3f;
         canvas.transform.DOScale(canvas.transform.localScale / 2, 0.75f);
+       
         var sequence = DOTween.Sequence().
             Append(canvas.transform.DOMove(Keys.Instance.keyPoint.position, 0.75f)).
             Append(Keys.Instance.transform.DOPunchScale(Keys.Instance.transform.localScale * 1.45f, 0.15f)).
