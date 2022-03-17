@@ -262,7 +262,7 @@ ParticleSystem:
   m_GameObject: {fileID: 7041412722016092317}
   serializedVersion: 7
   lengthInSec: 2
-  simulationSpeed: 1
+  simulationSpeed: 0.1
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
@@ -443,7 +443,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.603}
+      maxColor: {r: 0.30584726, g: 0.81549454, b: 0.8207547, a: 0.603}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1086,7 +1086,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 18.98
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5175,8 +5175,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7041414928246271887}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.189, y: 0.051, z: -0.144}
-  m_LocalScale: {x: -0.007666593, y: 0.39233118, z: 0.353271}
+  m_LocalPosition: {x: 0.129, y: 0.051, z: -0.16}
+  m_LocalScale: {x: -0.007896591, y: 0.7073657, z: 0.36386913}
   m_Children:
   - {fileID: 7039962838116125573}
   - {fileID: 7039752254057717829}
@@ -14945,7 +14945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7038127158251375835
 Transform:
   m_ObjectHideFlags: 0
@@ -19765,7 +19765,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b74779a12f08c844a60b2a5a0079454, type: 2}
   - {fileID: 2100000, guid: 3b74779a12f08c844a60b2a5a0079454, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -24812,7 +24811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9011953778447859497}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21997868, y: 0, z: -0.14067161}
+  m_LocalPosition: {x: 0.816, y: 0, z: -0.14067161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5336193495474487592}
