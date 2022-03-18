@@ -943,6 +943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GateRight
       objectReference: {fileID: 0}
+    - target: {fileID: 9194612626914966785, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.565
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
 --- !u!4 &4438986446217362355 stripped
@@ -1044,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3115202645952766479, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.84
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 3115202645952766479, guid: e4cafa2044085c64fb97a26e5a654fd6, type: 3}
       propertyPath: m_LocalRotation.w
