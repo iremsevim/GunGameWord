@@ -50,7 +50,7 @@ public class LevelManager : GameSingleActor<LevelManager>
             enemyy.FindLetter();
             enemyy.anim.speed = Random.Range(0.75f, 1f);
             enemyy.GoToTargetPos(FindTargetDoor());
-            yield return new WaitForSeconds(Random.Range(0.5f, 0.75f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.25f));
            }
        
            
