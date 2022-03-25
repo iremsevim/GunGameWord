@@ -27,8 +27,13 @@ public class LevelManager : GameSingleActor<LevelManager>
          Shuffle(allGates);
 
         GameObject enemy= GameData.Instance.enemy;
-       
-        for (int i = 0; i < 5* (Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex+1); i++)
+
+
+        int count = 5 * (Coskunerov.Managers.GameManager.Instance.runtime.currentLevelIndex + 1);
+        if (EnemyActor.SpecialWordDisplay)
+            if (count<EnemyActor.SpecialWord.Length)
+                count = EnemyActor.SpecialWord.Length;
+        for (int i = 0; i <count; i++)
         {
             if (UIActor.Instance.finishHealth) yield break;
             Transform point = enemyPoints[enemyIndexer];

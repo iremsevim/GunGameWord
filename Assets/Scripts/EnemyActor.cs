@@ -21,6 +21,10 @@ public class EnemyActor : MonoBehaviour
     public bool ishavevowel;
     public Transform canvas;
     public bool isShutted;
+
+    public static bool SpecialWordDisplay;
+    public static int SpecialWordIndex;
+    public static string SpecialWord= "Burberry";
     
    
     private void Awake()
@@ -52,17 +56,28 @@ public class EnemyActor : MonoBehaviour
     }
     public void FindLetter()
     {
-          
-        List<GameData.LetterProfile> alllletters=  GameData.Instance.allLetters;
-        LevelManager.Instance.Shuffle(alllletters);
-        List<GameData.LetterProfile> vowels = alllletters.FindAll(x=>x.isvowel== ishavevowel);
-         int index= Random.Range(0, vowels.Count);
-        ownedLetter.sprite = vowels[index].letter;
-       letterType = vowels[index].letterType;
-        
+
+        if (!SpecialWordDisplay)
+        {
+            List<GameData.LetterProfile> alllletters = GameData.Instance.allLetters;
+            LevelManager.Instance.Shuffle(alllletters);
+            List<GameData.LetterProfile> vowels = alllletters.FindAll(x => x.isvowel == ishavevowel);
+            int index = Random.Range(0, vowels.Count);
+            ownedLetter.sprite = vowels[index].letter;
+            letterType = vowels[index].letterType;
+        }
+        else
+        {
+            List<GameData.LetterProfile> alllletters = GameData.Instance.allLetters;
+            string next = SpecialWord[SpecialWordIndex].ToString().ToUpper();
+            var finded = alllletters.Find(x => x.letterType.ToString() == next);
+            letterType = finded.letterType;
+            ownedLetter.sprite = finded.letter;
+            SpecialWordIndex++;
+            if (SpecialWordIndex >= SpecialWord.Length) SpecialWordDisplay = false;
+        }
        
-        
-        
+
     }
     public void Dead(EnemyActor shuttedenemy)
     {
@@ -108,7 +123,7 @@ public class EnemyActor : MonoBehaviour
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
         UIActor.Instance.DecreaseHealth();
         Destroy(gameObject,0.1F);
-       
-       
     }
+
+    
 }
